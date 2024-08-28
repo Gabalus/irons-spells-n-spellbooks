@@ -263,6 +263,7 @@
   "tooltip.irons_spellbooks.evasion_description": " Allows %d Hits to be Evaded",
   "tooltip.irons_spellbooks.passive_ability": " Passive Ability (%s cooldown):",
   "tooltip.irons_spellbooks.modifiers.multihand" : "When in Either Hand:",
+  "tooltip.irons_spellbooks.deflect_description": " Allows %d Not Magical Hits to be Deflected",
 
   "ui.irons_spellbooks.unlearned_spell": "Unlearned Spell",
   "ui.irons_spellbooks.arcane_anvil_title": "Arcane Anvil",
@@ -337,6 +338,7 @@
   "ui.irons_spellbooks.research_already_learned": "This spell is already learned",
   "ui.irons_spellbooks.wandering_trader_scroll": "Any %s Scroll",
   "ui.irons_spellbooks.sacrifice_target_failure": "You must target one of your summons",
+  "ui.irons_spellbooks.hits_deflected": "%d Not Magical Projectiles Deflected",
   "school.irons_spellbooks.fire": "Fire",
   "school.irons_spellbooks.ice": "Ice",
   "school.irons_spellbooks.lightning": "Lightning",
@@ -496,6 +498,7 @@
   "spell.irons_spellbooks.flaming_barrage": "Flaming Barrage",
   "spell.irons_spellbooks.ball_lightning": "Ball Lightning",
   "spell.irons_spellbooks.sacrifice": "Sacrifice",
+  "spell.irons_spellbooks.deflect": "Deflection",
 
   "spell.irons_spellbooks.none.guide": "Nothing to see here!",
   "spell.irons_spellbooks.fireball.guide": "Manifest and throw a ball of fire, exploding and dealing massive damage on impact.",
@@ -594,6 +597,7 @@
   "spell.irons_spellbooks.flaming_barrage.guide": "Cast to select targets, which at the end of recasting, will each be under barrage of small fireballs.",
   "spell.irons_spellbooks.ball_lightning.guide": "Conjure an orb of lightning that slowly moves forward, damaging creatures it phases through and bouncing off blocks.",
   "spell.irons_spellbooks.sacrifice.guide": "Target one of your magic summons to cause them to explode, killing them instantly, and dealing large damage in the area around them. The summon's remaining health boosts the damage dealt and radius of explosion.",
+  "spell.irons_spellbooks.deflect.guide": "Cast to imbue yourself with ender energy. Upon being attacked while under its effects, you will deflect not magical projectiles. Only a finite amount of hits can be dodged before the effect immediately wears off.",
 
   "death.attack.blood_magic": "%1$s blood magic 1",
   "death.attack.blood_magic.item": "%1$s blood magic 2",
@@ -758,6 +762,7 @@
   "effect.irons_spellbooks.gluttony": "Gluttony",
   "effect.irons_spellbooks.echoing_strikes": "Echoing Strikes",
   "effect.irons_spellbooks.thunderstorm": "Thunderstorm",
+  "effect.irons_spellbooks.deflect": "Deflection",
 
   "effect.irons_spellbooks.heartstop.description": "Become temporarily invulnerable, but take 50% of accumulated damage once it wears off",
   "effect.irons_spellbooks.angel_wings.description": "Grants spectral elytra wings",
@@ -788,6 +793,7 @@
   "effect.irons_spellbooks.gluttony.description": "Converts food eaten into mana based on its nutrition",
   "effect.irons_spellbooks.echoing_strikes.description": "While under the effects of the spell, non-magical attack will leave an echo of ender energy behind, shortly thereafter exploding with an echo of the attack's damage.",
   "effect.irons_spellbooks.thunderstorm.description": "While under the effects of the spell, small bolts of lightning strike nearby creatures every 2 seconds.",
+  "effect.irons_spellbooks.deflect.description": "Deflects any not magical projectile while under its effects, taking no damage",
 
   "commands.irons_spellbooks.create_scroll.failed": "Create Scroll Failed",
   "commands.irons_spellbooks.create_spell_book.failed": "Create Spell Book Failed",

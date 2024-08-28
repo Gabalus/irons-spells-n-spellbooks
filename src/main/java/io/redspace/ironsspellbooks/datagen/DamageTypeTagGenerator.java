@@ -35,6 +35,7 @@ public class DamageTypeTagGenerator extends TagsProvider<DamageType> {
     public static final TagKey<DamageType> EVOCATION_MAGIC = create("evocation_magic");
     public static final TagKey<DamageType> ELDRITCH_MAGIC = create("eldritch_magic");
     public static final TagKey<DamageType> NATURE_MAGIC = create("nature_magic");
+    public static final TagKey<DamageType> BYPASS_DEFLECT = create("bypass_deflect");
 
     protected void addTags(@NotNull Provider provider) {
         tag(FIRE_MAGIC).add(ISSDamageTypes.FIRE_MAGIC);
@@ -58,6 +59,31 @@ public class DamageTypeTagGenerator extends TagsProvider<DamageType> {
                 DamageTypes.FELL_OUT_OF_WORLD,
                 DamageTypes.DRY_OUT,
                 ISSDamageTypes.CAULDRON);
+
+        tag(BYPASS_DEFLECT).add(
+                DamageTypes.ON_FIRE,
+                DamageTypes.WITHER,
+                DamageTypes.FREEZE,
+                DamageTypes.STARVE,
+                DamageTypes.DROWN,
+                DamageTypes.STALAGMITE,
+                DamageTypes.OUTSIDE_BORDER,
+                DamageTypes.FELL_OUT_OF_WORLD,
+                DamageTypes.DRY_OUT,
+                ISSDamageTypes.CAULDRON,
+                ISSDamageTypes.BLOOD_MAGIC,
+                ISSDamageTypes.ELDRITCH_MAGIC,
+                ISSDamageTypes.ENDER_MAGIC,
+                ISSDamageTypes.DRAGON_BREATH_POOL,
+                ISSDamageTypes.EVOCATION_MAGIC,
+                ISSDamageTypes.FIRE_FIELD,
+                ISSDamageTypes.FIRE_MAGIC,
+                ISSDamageTypes.HOLY_MAGIC,
+                ISSDamageTypes.ICE_MAGIC,
+                ISSDamageTypes.LIGHTNING_MAGIC,
+                ISSDamageTypes.NATURE_MAGIC,
+                ISSDamageTypes.POISON_CLOUD,
+                ISSDamageTypes.HEARTSTOP);
 
         tag(LONG_CAST_IGNORE).add(
                 DamageTypes.FREEZE,

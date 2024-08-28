@@ -22,10 +22,7 @@ import io.redspace.ironsspellbooks.data.DataFixerStorage;
 import io.redspace.ironsspellbooks.data.IronsDataStorage;
 import io.redspace.ironsspellbooks.datafix.IronsWorldUpgrader;
 import io.redspace.ironsspellbooks.datagen.DamageTypeTagGenerator;
-import io.redspace.ironsspellbooks.effect.AbyssalShroudEffect;
-import io.redspace.ironsspellbooks.effect.EvasionEffect;
-import io.redspace.ironsspellbooks.effect.SpiderAspectEffect;
-import io.redspace.ironsspellbooks.effect.SummonTimer;
+import io.redspace.ironsspellbooks.effect.*;
 import io.redspace.ironsspellbooks.entity.mobs.MagicSummon;
 import io.redspace.ironsspellbooks.entity.mobs.SupportMob;
 import io.redspace.ironsspellbooks.entity.spells.root.PreventDismount;
@@ -450,6 +447,11 @@ public class ServerPlayerEvents {
                 } else if (syncedSpellData.hasEffect(SyncedSpellData.ABYSSAL_SHROUD)) {
                     //IronsSpellbooks.LOGGER.debug("onProjectileImpact: abyssal shroud");
                     if (AbyssalShroudEffect.doEffect(livingEntity, victim.damageSources().indirectMagic(event.getProjectile(), event.getProjectile().getOwner()))) {
+                        event.setCanceled(true);
+                    }
+                } else if (syncedSpellData.hasEffect(SyncedSpellData.DEFLECT)) {
+                    //IronsSpellbooks.LOGGER.debug("onProjectileImpact: evasion");
+                    if (DeflectEffect.doEffect(livingEntity, victim.damageSources().indirectMagic(event.getProjectile(), event.getProjectile().getOwner()))) {
                         event.setCanceled(true);
                     }
                 }

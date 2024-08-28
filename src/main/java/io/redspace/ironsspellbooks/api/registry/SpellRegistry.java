@@ -104,6 +104,7 @@ public class SpellRegistry {
     public static final RegistryObject<AbstractSpell> PORTAL_SPELL = registerSpell(new PortalSpell());
     public static final RegistryObject<AbstractSpell> ECHOING_STRIKES_SPELL = registerSpell(new EchoingStrikesSpell());
     public static final RegistryObject<AbstractSpell> BLACK_HOLE_SPELL = registerSpell(new BlackHoleSpell());
+    public static final RegistryObject<AbstractSpell> DEFLECTION_SPELL = registerSpell(new DeflectSpell());
 
     // EVOCATION
     public static final RegistryObject<AbstractSpell> CHAIN_CREEPER_SPELL = registerSpell(new ChainCreeperSpell());

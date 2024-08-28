@@ -27,6 +27,7 @@ public class SyncedSpellData {
     public static final long TRUE_INVIS = 32;
     public static final long CHARGED = 64;
     public static final long PLANAR_SIGHT = 128;
+    public static final long DEFLECT = 256;
 
     //localEffectFlags
     public static final long HEAL_TARGET = 1;
@@ -47,6 +48,7 @@ public class SyncedSpellData {
     private SpellSelection spellSelection;
 
     private String castingEquipmentSlot;
+    private int deflectHitsRemaining;
 
     //Use this on the client
     public SyncedSpellData(int serverPlayerId) {
@@ -63,6 +65,7 @@ public class SyncedSpellData {
         this.spinAttackType = SpinAttackType.RIPTIDE;
         this.learnedSpellData = new LearnedSpellData();
         this.spellSelection = new SpellSelection();
+        this.deflectHitsRemaining = 0;
     }
 
     //Use this on the server
@@ -84,6 +87,7 @@ public class SyncedSpellData {
             buffer.writeUtf(data.castingEquipmentSlot);
             data.learnedSpellData.writeToBuffer(buffer);
             data.spellSelection.writeToBuffer(buffer);
+            buffer.writeInt(data.deflectHitsRemaining);
         }
 
         public SyncedSpellData read(FriendlyByteBuf buffer) {
@@ -98,6 +102,7 @@ public class SyncedSpellData {
             data.castingEquipmentSlot = buffer.readUtf();
             data.learnedSpellData.readFromBuffer(buffer);
             data.spellSelection.readFromBuffer(buffer);
+            data.deflectHitsRemaining = buffer.readInt();
             return data;
         }
     };
@@ -110,6 +115,7 @@ public class SyncedSpellData {
         compound.putLong("effectFlags", this.syncedEffectFlags);
         compound.putFloat("heartStopAccumulatedDamage", this.heartStopAccumulatedDamage);
         compound.putFloat("evasionHitsRemaining", this.evasionHitsRemaining);
+        compound.putFloat("deflectHitsRemaining", this.deflectHitsRemaining);
 
         //TODO: refactor learned spell data to use INBTSerializable instead of this custom deal
         learnedSpellData.saveToNBT(compound);
@@ -125,6 +131,7 @@ public class SyncedSpellData {
         this.syncedEffectFlags = compound.getLong("effectFlags");
         this.heartStopAccumulatedDamage = compound.getFloat("heartStopAccumulatedDamage");
         this.evasionHitsRemaining = compound.getInt("evasionHitsRemaining");
+        this.deflectHitsRemaining = compound.getInt("deflectHitsRemaining");
         //TODO: refactor learned spell data to use INBTSerializable instead of this custom deal
         this.learnedSpellData.loadFromNBT(compound);
         this.spellSelection.deserializeNBT(compound.getCompound("spellSelection"));
@@ -208,6 +215,15 @@ public class SyncedSpellData {
         return evasionHitsRemaining;
     }
 
+    public int getDeflectHitsRemaining() {
+        return deflectHitsRemaining;
+    }
+
+    public void subtractDeflectHit() {
+        deflectHitsRemaining--;
+        doSync();
+    }
+
     public void subtractEvasionHit() {
         evasionHitsRemaining--;
         doSync();
@@ -215,6 +231,11 @@ public class SyncedSpellData {
 
     public void setEvasionHitsRemaining(int hitsRemaining) {
         evasionHitsRemaining = hitsRemaining;
+        doSync();
+    }
+
+    public void setDeflectHitsRemaining(int hitsRemaining) {
+        deflectHitsRemaining = hitsRemaining;
         doSync();
     }
 
