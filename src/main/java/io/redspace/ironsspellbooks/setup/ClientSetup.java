@@ -163,6 +163,7 @@ public class ClientSetup {
         if (render instanceof LivingEntityRenderer livingRenderer) {
             livingRenderer.addLayer(new AngelWingsLayer<>(livingRenderer));
             livingRenderer.addLayer(new EnergySwirlLayer.Vanilla(livingRenderer, EVASION_TEXTURE, SyncedSpellData.EVASION));
+            livingRenderer.addLayer(new EnergySwirlLayer.Vanilla(livingRenderer, EVASION_TEXTURE, SyncedSpellData.DEFLECT));
             livingRenderer.addLayer(new EnergySwirlLayer.Vanilla(livingRenderer, CHARGE_TEXTURE, SyncedSpellData.CHARGED));
             livingRenderer.addLayer(new ChargeSpellLayer.Vanilla<>(livingRenderer));
             livingRenderer.addLayer(new GlowingEyesLayer.Vanilla<>(livingRenderer));
